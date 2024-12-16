@@ -1,3 +1,7 @@
+--creates a view that lists the top 10 basketball players by average points 
+--per game. It calculates each player's average points from game data, 
+--groups the data by player and team, ranks the players by their averages 
+--in descending order, and retrieves the top 10 players.
 config {
   type: "view" ,
 }

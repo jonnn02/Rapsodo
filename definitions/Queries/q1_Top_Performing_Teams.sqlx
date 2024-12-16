@@ -1,3 +1,7 @@
+--creates a view that lists the top-scoring basketball team for each season 
+--based on their average points per game. It calculates each team's 
+--average points, ranks them by season, and selects the highest-ranked team 
+--for each season, ordering the results by the most recent season first.
 config {
   type: "view" ,
 }

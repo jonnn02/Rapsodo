@@ -1,3 +1,6 @@
+--pulls data from two tables—one with team season stats and 
+--another with team details—joining them based on team IDs. 
+--The results are sorted by market and then by the most recent seasons first.
 config {
   type: "view" 
 }
