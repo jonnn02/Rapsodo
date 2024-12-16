@@ -1,0 +1,9 @@
+config {
+  type: "view" 
+}
+
+SELECT season as Season, teams_seasons.market, teams.name AS Team_Name, wins, losses, ties
+FROM ${ref('mbb_historical_teams_seasons')} teams_seasons
+INNER JOIN ${ref("mbb_teams")} teams
+ON teams_seasons.team_id = teams.id
+ORDER BY teams_seasons.market, season DESC

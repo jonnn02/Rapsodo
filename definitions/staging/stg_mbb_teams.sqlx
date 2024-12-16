@@ -1,0 +1,11 @@
+config {
+  type: "table"
+}
+
+select
+  name,
+  code_ncaa,
+  kaggle_team_id,
+  turner_name
+from
+  ${ref("mbb_teams")} 

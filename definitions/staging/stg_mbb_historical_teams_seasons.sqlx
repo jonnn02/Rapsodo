@@ -1,0 +1,12 @@
+config {
+  type: "table"
+}
+
+select
+  season,
+  team_code,
+  wins,
+  losses,
+  ties
+from
+  ${ref("mbb_historical_teams_seasons")} 

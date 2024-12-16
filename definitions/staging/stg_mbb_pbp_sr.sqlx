@@ -1,0 +1,10 @@
+config {
+  type: "table"
+}
+
+select
+  name,
+  code_ncaa,
+  turner_name
+from
+  ${ref("mbb_pbp_sr")} 

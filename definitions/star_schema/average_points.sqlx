@@ -1,0 +1,29 @@
+config {
+  type: "view" ,
+}
+
+WITH TeamAverages AS (
+    SELECT
+        teams.name,
+        season,
+        ROUND((SUM(points_game) / COUNT(*)),2) AS avg_points_per_game
+    FROM ${ref("mbb_teams_games_sr")} teams_games
+    INNER JOIN ${ref("mbb_teams")} teams
+    ON teams_games.team_id = teams.id
+    GROUP BY teams.name, season
+),
+RankedTeams AS (
+    SELECT
+        name,
+        season,
+        avg_points_per_game,
+        RANK() OVER (PARTITION BY season ORDER BY avg_points_per_game DESC) AS rank
+    FROM TeamAverages
+)
+SELECT
+    name,
+    season,
+    avg_points_per_game
+FROM RankedTeams
+WHERE rank = 1
+ORDER BY season DESC

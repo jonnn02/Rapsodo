@@ -1,0 +1,5 @@
+defaultProject: bigquery-public-data
+defaultLocation: US
+defaultDataset: ncaa_basketball
+defaultAssertionDataset: dataform_assertions
+dataformCoreVersion: 3.0.0

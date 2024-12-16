@@ -1,0 +1,8 @@
+
+config {
+  type: "declaration",
+  database: "bigquery-public-data",
+  schema: "ncaa_basketball",
+  name:"mbb_historical_teams_seasons"
+}
+

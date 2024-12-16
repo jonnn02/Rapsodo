@@ -1,0 +1,5 @@
+tables:
+  # Define a table from a BigQuery public dataset
+  bigquery-public-data.ncaa_basketball.mascots:
+    source: bigquery
+    table: bigquery-public-data.ncaa_basketball.mascots

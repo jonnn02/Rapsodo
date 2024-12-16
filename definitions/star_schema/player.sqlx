@@ -1,0 +1,26 @@
+config {
+  type: "view" ,
+}
+
+WITH PlayerAverages AS (
+    SELECT
+        full_name,
+        team_name,
+        ROUND((SUM(points) / COUNT(*)),2) AS avg_points
+    FROM ${ref("mbb_players_games_sr")} teams_games
+    GROUP BY full_name, team_name
+),
+RankedPlayers AS (
+    SELECT
+        full_name,
+        team_name,
+        avg_points
+    FROM PlayerAverages
+    ORDER BY avg_points DESC
+    LIMIT 10
+)
+SELECT
+    full_name,
+    team_name,
+    avg_points
+FROM RankedPlayers
